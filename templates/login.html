@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+login_action에 있는 로직이 이제 app.py으로 이동한다
+로그인 성공시 login_ok.jsp로 이동
+로그인 실패시 login_fail.jsp로 이동
+-->
+<form action="login.do" name="loginForm" onsubmit="return checkLogin()">
+    아이디: <input type="text" name="id" required="required"><br>
+    패스워드: <input type="password" name="password" required="required"><br>
+    <input type="submit" value="전송">
+</form>
+</body>
+</html>

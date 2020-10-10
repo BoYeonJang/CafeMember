@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <script
+	    src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <script>
+        $(function() {
+		// keyEvent... 적용
+		$('#id').keyup(function() {
+			var id = $(this).val();
+			if (id.length < 4 || id.length > 8) {
+				$('#checkid').html("id는 4자 이상, 8자 미만으로 입력!!").css('color', 'red');
+				return;
+			} else {
+				$.ajax({
+					type : 'post',
+					url : 'idcheck.do',
+					data : "id=" + id,
+
+					success : function(data) {
+						if ($.trim(data) == 'true') $('#checkid').html(id + " :: 사용 불가").css('color', 'red');
+						else $('#checkid').html(id + " :: 사용 가능").css('color', 'blue');
+					} // success
+				}); // ajax
+			} // else
+		}); // keyup
+	}); // function
+    </script>
+</head>
+<body>
+<h3>회원가입</h3>
+<!--
+ register_action에서 하고있는 기능이 app.py 이동
+ register_result.html로 결과를 보낸다
+ -->
+<form action="register.do" name="registerForm">
+    ID : <input type="text" name="id" id="id" required="required">
+    <span id="checkid"></span><br>
+    <input type="hidden" name="command" value="idcheck">
+    <br> PASSWORD : <input type="password" name="password" required="required"><br>
+    <br> NAME : <input type="text" name="name" required="required"><br>
+    <br> ADDRESS : <input type="text" name="address" required="required"><br>
+    <br> <input type="submit" value="member register">
+</form>
+</body>
+</html>

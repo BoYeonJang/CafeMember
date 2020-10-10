@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>find</title>
+    <script>
+        function checkId() {
+            var cid = document.findForm.id;
+            if (cid.value == "") {
+                alert("아이디를 입력하세요");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<!--
+find_action.html의 내용이 들어간다...
+실행결과를 수행했을때 해당 id를 찾으면 find_ok.html로 결과를 돌리고
+실행결과를 수행했을때 해당 id를 찾지 못하면 find_fail.html로 결과를 돌리고
+ -->
+<form action="find.do" name="findForm" onsubmit="return checkId()">
+    아이디: <input type="text" name="id">
+    <input type="submit" value="검색">
+</form>
+</body>
+</html>

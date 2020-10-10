@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<h1>Python_CafeMember_Ajax 회원관리</h1>
+<p>
+
+    <a href="find">회원 검색</a><br>
+
+    <c:choose>
+        <c:when test="${!empty vo}">
+            <a href="logout">로그 아웃</a><br>
+            <a href="allView">전체 회원 보기</a><br>
+            <a href="update">회원 정보 수정</a><br>
+        </c:when>
+        <c:otherwise>
+            <a href="login">로그인 </a><br>
+            <a href="register">회원 가입</a><br>
+        </c:otherwise>
+    </c:choose>
+</body>
+</html>
